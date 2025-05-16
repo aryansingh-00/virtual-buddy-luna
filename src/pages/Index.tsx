@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import ChatMessage from "@/components/ChatMessage";
 import MessageInput from "@/components/MessageInput";
@@ -6,6 +5,7 @@ import { getLunaInitialMessage, getLunaResponse } from "@/services/lunaService";
 import { Message } from "@/types/chat";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Heart } from "lucide-react";
+import LunaAvatar from "@/components/LunaAvatar";
 
 const IndexPage = () => {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -59,11 +59,8 @@ const IndexPage = () => {
           ))}
           {isLunaTyping && (
             <div className="flex items-center justify-start my-3">
-               {/* Using ChatMessage styling for consistency but could be a dedicated typing indicator */}
               <div className="flex items-end gap-2 animate-fade-in">
-                  <div className="h-10 w-10 rounded-full bg-pink-400 text-white flex items-center justify-center p-2">
-                    <span className="animate-bounce text-xs">...</span>
-                  </div>
+                  <LunaAvatar isLuna={true} />
                   <div className="max-w-[70%] p-3 rounded-xl shadow-md bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-bl-none">
                     <p className="text-sm italic">Luna is typing...</p>
                   </div>
@@ -80,4 +77,3 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
-

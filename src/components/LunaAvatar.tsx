@@ -1,6 +1,7 @@
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Heart } from "lucide-react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+// Removed Heart import as it's replaced by the 3D avatar for Luna
+import Luna3DAvatar from "./Luna3DAvatar";
 
 interface LunaAvatarProps {
   isLuna: boolean;
@@ -17,15 +18,13 @@ const LunaAvatar: React.FC<LunaAvatarProps> = ({ isLuna }) => {
   }
 
   return (
-    <Avatar className="h-10 w-10">
-      {/* You can replace AvatarImage with an actual image if you upload one for Luna */}
-      {/* <AvatarImage src="path/to/luna-avatar.png" alt="Luna" /> */}
-      <AvatarFallback className="bg-pink-400 text-white flex items-center justify-center">
-        <Heart size={20} />
-      </AvatarFallback>
-    </Avatar>
+    // Use a div to wrap the 3D avatar, ensuring it fits well.
+    // The size of the 3D avatar is primarily controlled within Luna3DAvatar's Canvas style.
+    // This div helps align it within the chat message.
+    <div className="h-10 w-10 flex items-center justify-center rounded-full overflow-hidden bg-pink-100">
+      <Luna3DAvatar />
+    </div>
   );
 };
 
 export default LunaAvatar;
-
