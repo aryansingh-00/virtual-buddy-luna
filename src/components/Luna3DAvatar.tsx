@@ -1,7 +1,7 @@
 
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Mesh, Color } from 'three';
+import { Mesh } from 'three'; // Removed Color import
 
 const SpinningMesh: React.FC = () => {
   const meshRef = useRef<Mesh>(null!);
@@ -17,8 +17,8 @@ const SpinningMesh: React.FC = () => {
     <mesh ref={meshRef} scale={1.2}>
       <sphereGeometry args={[1, 32, 32]} />
       <meshStandardMaterial 
-        color={new Color("#9b87f5")} 
-        emissive={new Color("#7E69AB")} 
+        color="#9b87f5" // Changed to string literal
+        emissive="#7E69AB" // Changed to string literal
         roughness={0.3} 
         metalness={0.1} 
       />
